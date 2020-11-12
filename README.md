@@ -45,7 +45,24 @@ CNNs are mainly used for image analysis, in particular image classification. The
 ### What did i do?
 For the first CNN exercise we looked at existing netowrks and tried applying these weights and to use transfer learning. Personally i made a network using Mask-Rcnn and applied weights that were already pre-trained (coco_weights). The goal here was to train a network to detect and recognize ships. For this i had to label the ships on the image with Max/Min Y/X.
 ![Image Convolutional Neural Network](https://miro.medium.com/max/2510/1*vkQ0hXDaQv57sALXAJquxA.jpeg)
-## 4. CNN 2
+## 4. CNN 2 - Visual explanation skin lesions using Grad-CAM class activation visualisation
+### What is gradiant descent?
+Gradient descent is a technique that is used to figure out what the best accuracy/loss of a netwourk could be. Gradient descent keeps into account that it is possible to find a sub-par score. In this case the network thinks that it has the best performance possible, but what it actually sees and is a local minimum. This means that the network is stuck and has trouble finding better performance. In the image below you can see one such scenario.
+![Gradient Descent](https://hackernoon.com/hn-images/1*f9a162GhpMbiTVTAua_lLQ.png)
+### What did i do?
+I took a look at a model that Ralf made. The goal here was to vizualise what the machine sees and try to conclude why the machine makes/takes the decision that it made. This is can be used to better understand a network and get an idea of how it performs and what it sees in the imagse. 
 ## 5. RL (Reinforcement Learning) 
+### What is Reinforcement Learning
+Reinforcement learning is a technique that uses brute force to learn how to do something. It works on a reward based system, as the netwrok needs to somehow figure out when it takes an action which is good or when it takes an action which is bad. By bruteforcing it enough you should be able to come to an efficient solution. The network which we focused on was Q-Learning, which works in such a way that the network gets an matrix where it can see the rewards that it can expect. And takes the reward which will lead ot the most total points. But Q learning changes as the network might just take 2 action which it thinks will forever in a loop deliver the most. So the network takes a random aciton with the hopes of getting a better reward. And thus training the netwrok to improve. 
+Below you can see a Q-Learning table:
+
+![Q-learning Table](https://www.researchgate.net/profile/Ke_Zhou4/publication/333861714/figure/fig5/AS:780993963241472@1563214879324/Difference-between-Q-Learning-and-DQN.png)
+### What did i do?
+Instead of using a network that someone else created or looking at a tutorial, for my case i used the carclimb-enviroment. I made my own network, where i had to define the reward system myself. Even though the objective was to work with Q-Leanring i made decided to do it differently.
+I took the apporach of using generation based system. Where a parent would be used as the input of the network and the offspinrgs would try to find improvements. The improvement happens by taking random actions at some point in the network. Though the first version of the network is done where the netwrok takes random actions starting at some point in the actionlist. There are somethings missing which i would like to finsih:
+1. Add 2 more ways of deciding when to take the random action.
+  - At the moment the random actions happen from a certain point in the array and will take random actions until it finds a solution. There need to be 2 additions on how to use train the network.
+      - One would be to change the input before the randomly selected point in the array.
+      - The other would be to add the random actions between 2 points in the array.
 ## 6. NLP
 ## 7. Project
