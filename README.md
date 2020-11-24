@@ -64,5 +64,22 @@ I took the apporach of using generation based system. Where a parent would be us
   - At the moment the random actions happen from a certain point in the array and will take random actions until it finds a solution. There need to be 2 additions on how to use train the network.
       - One would be to change the input before the randomly selected point in the array.
       - The other would be to add the random actions between 2 points in the array.
-## 6. NLP
+## 6. NLP (Natural Language Processing) - Conversational application and Self reflecting Text Generator 
+### What is NLP?
+In short NLP is an AI that is designed to interact with humans using natural language. In this process the computer is taught to understand the language of humans. This is a scary part for computers to understand and work with. As the most valuable asset of us humans is the fact that we are able to comunicate in the way that we do. Seeing that AI are able to udnerstand comprhend this is a scary thing. Here are some examples of what NLP is currently capable of:
+1. Generate texts, given an input
+2. Hold conversations
+3. Understand sentiment
+4. The newer models are even capable to program HTML given an input.
+![NLP](https://i1.wp.com/www.snowdropsolution.com/wp-content/uploads/2020/09/4-Simple-Use-Of-Natural-Language-Processing-In-Businesses.jpg?resize=1505%2C847&ssl=1)
+### What did i do?
+I played with the transformers [library](https://huggingface.co/transformers/). The library is able to use multiple networks which can be found on the website huggingface.co. I experimented with the following available pipelines:
+1. Text generation
+2. Text sumaration
+3. Translation 
+4. Sentimental analysis
+5. **Mini-app conversational network**
+- This is a tool which uses the abiltiy of the network to converse with the user. The cool part about it is that it can remember what the conversation was about and reply the user based on information gained in previous sentances.
+6. **Self reflecting Text Generator (Combination of 1,2,4)**
+- This is a bot that makes use of the first 3 named pipelines. Here the user can input a start to a story or in more general terms a simple text. And the bot will write a few stories with the sentace as start. And the bot will look at which of the created stories best matches the sentiment of the initial sentance.
 ## 7. Project
