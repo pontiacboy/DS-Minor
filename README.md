@@ -56,7 +56,7 @@ I took a look at a model that Ralf made. The goal here was to visualize what the
 Reinforcement learning is a technique that uses brute force to learn how to do something. It works on a reward-based system, as the network needs to somehow figure out when it takes an action that is good or when it takes a bad action. By brute-forcing it enough you should be able to come to an efficient solution. The network which we focused on was Q-Learning, which works in such a way that the network gets a matrix where it can see the rewards that it can expect. And takes the reward which will lead to the most total points. But Q learning changes as the network might just take 2 actions which it thinks will forever in a loop deliver the most. So the network takes a random action with the hopes of getting a better reward. And thus training the network to improve. 
 Below you can see a Q-Learning table:
 
-![Q-learning Table](https://www.researchgate.net/profile/Ke_Zhou4/publication/333861714/figure/fig5/AS:780993963241472@1563214879324/Difference-between-Q-Learning-and-DQN.png)
+![Q-learning Table](https://i.stack.imgur.com/Bn6MY.gif)
 ### What did I do?
 Instead of using a network that someone else created or looking at a tutorial, for my case I used the carclimb-environment. I made my network, where I had to define the reward system myself. Even though the objective was to work with Q-Learning I made decided to do it differently.
 I took the approach of using generation based system. Where a parent would be used as the input of the network and the offsprings would try to find improvements. The improvement happens by taking random actions at some point in the network. Though the first version of the network is done where the network takes random actions starting at some point in the action list. Somethings are missing which I would like to finish:
@@ -83,3 +83,45 @@ I played with the transformers [library](https://huggingface.co/transformers/). 
 6. ** Self-reflecting Text Generator (Combination of 1,2,4)**
 - This is a bot that makes use of the first 3 named pipelines. Here the user can input a start to a story or in more general terms a simple text. And the bot will write a few stories with the sentence as a start. And the bot will look at which of the created stories best matches the sentiment of the initial sentence.
 ## 7. Project
+### What was the project?
+Working with naturalis on creating a deep learning model that creates a Species Destribution model based on historical data on Climate and Observation variables.
+### What did i do?
+For each of the versions of the project we had received both feedback from the client and our tutors and were able to make improvements on the network based on this feedback.
+#### For the project I have done the following when it comes to algorithms:
+1. Preparing the data to go into the network:
+- Exploratory Data Analysis(EDA)
+  - I conducted an analysis in PowerBI to get an idea of what the data looks like and think of possible features to drop.
+- Dropping nan values
+  - The data contained NAN value, this would make the model extremely biased as once it encountered a nan value it could not learn or improve.
+- Data Normalization
+  - The data is setup in such a way that it has many values which differentiate in big numbers from each other. The normalization minimizes this difference and makes it easier for the network to comprehend the numbers.
+- Categorize data
+  - Transform butterfly and land climate names into numerical categorical data.
+- Triangulating Enviromental data with observations
+  - Having to merge the environmental data with the observation data. This happened in a way where a subset is created when looking at the closest longitude of an observation and then holding the same process for latitude, this would lead to the best matching environmental location.
+2. Creating the network:
+- First version
+  - I created the first version within this version a few things were ran to test. The test where simply run on the what the network would look like. By looking at the results the networks were taken into the steps that followed. The following was tested:
+    - Layers
+    - Neurons
+    - Activations
+  - The first version still used MSE & Accuracy as metrics. This was done to see how well the model would predict in the first instance.
+- Second version
+  - Changing and playing with metrics.
+    - Loss
+      - The loss function was changed to Sparse_k_categorical which looked at the top K predictions and counted the biggest prediction as good.
+    - Accuracy
+      - Just like the loss Sparse_K_categorical was used. This improved the network performance.
+- Third version
+  - Using correct metrics
+    - Loss
+      - Changing the loss to binary crossentropy
+      - For this we had to change the ouput layer from an inteteger that indicates the butterfly into a one hot encoded array.
+      - This loss function looks at the prediction and determines just by what was actually seen whether the prediction is correct or false.
+    - Accuracy
+      - The accuracy was reverted just to accuracy to measure the performance for the first prediction. (This has no other effect).
+- Fourth version (Optimization version)
+  - Feature dropping
+    - I played around with the idea of dropping feature and looking at the results that this implementation led to. Main features that were dropped were the latitude and longitude features.
+  - Analysis script
+    - I created a script that creates a PDF whenever we make an improvement to the network. With this script you should be able to get a comparison on performance between the networks.
