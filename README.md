@@ -125,3 +125,5 @@ For each of the versions of the project we had received both feedback from the c
     - I played around with the idea of dropping feature and looking at the results that this implementation led to. Main features that were dropped were the latitude and longitude features.
   - Analysis script
     - I created a script that creates a PDF whenever we make an improvement to the network. With this script you should be able to get a comparison on performance between the networks.
+## 8. Open Program (Chess Network that plays like me)
+## 9. Challenge (PUBG, Dataset)
