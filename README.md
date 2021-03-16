@@ -126,4 +126,7 @@ For each of the versions of the project we had received both feedback from the c
   - Analysis script
     - I created a script that creates a PDF whenever we make an improvement to the network. With this script you should be able to get a comparison on performance between the networks.
 ## 8. Open Program (Chess Network that plays like me)
+https://www.youtube.com/watch?v=a7uCN0RUQvc
+<br>
+The video shows how the model works more information on the model will come in the future.
 ## 9. Challenge (PUBG, Dataset)
